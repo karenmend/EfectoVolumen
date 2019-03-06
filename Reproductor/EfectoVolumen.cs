@@ -9,11 +9,36 @@ namespace Reproductor
 {
     class EfectoVolumen : ISampleProvider 
     {
+        private float volume;
+        public float Volume
+        {
+            get
+            {
+                return volume;
+            }
+            set
+            {
+                if(value < 0)
+                {
+                    volume = 0;
+                }
+                else if(value > 1)
+                {
+                    volume = 1;
+                }
+                else
+                {
+                    volume = value;
+                } 
+            }
+        }
+
         private ISampleProvider fuente;
 
         public EfectoVolumen(ISampleProvider fuente)
         {
             this.fuente = fuente;
+            volume = 1;
         }
 
         public WaveFormat WaveFormat
@@ -30,7 +55,7 @@ namespace Reproductor
 
             for ( int i=0; i<read; i++)
             {
-                buffer[offset + i] *= 0.2f;
+                buffer[offset + i] *= Volume;
             }
             return read;
         }
