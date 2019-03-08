@@ -32,7 +32,7 @@ namespace Reproductor
         DispatcherTimer timer;
         EfectoVolumen volume;
         FadeInOutSampleProvider fades;
-
+        Delay delay;
         bool fadingOut = false; 
 
         bool dragging = false;
@@ -96,7 +96,9 @@ namespace Reproductor
             else
             {
                 reader = new AudioFileReader(txtRutaArchivo.Text);
-                fades = new FadeInOutSampleProvider(reader, true);
+                delay = new Delay(reader);
+
+                fades = new FadeInOutSampleProvider(delay, true);
                 double milisegundosFadein = Double.Parse(txtFadeIn.Text) * 1000.0;
                 fades.BeginFadeIn(milisegundosFadein);
                 output = new WaveOutEvent();
