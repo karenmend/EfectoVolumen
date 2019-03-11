@@ -36,7 +36,8 @@ namespace Reproductor
         bool fadingOut = false; 
 
         bool dragging = false;
-        
+
+        int milisegundosOffset = 0;
 
         public MainWindow()
         {
@@ -102,6 +103,8 @@ namespace Reproductor
                 double milisegundosFadein = Double.Parse(txtFadeIn.Text) * 1000.0;
                 fades.BeginFadeIn(milisegundosFadein);
                 output = new WaveOutEvent();
+                
+               
 
                 fadingOut = false; 
 
@@ -195,6 +198,20 @@ namespace Reproductor
                 fades.BeginFadeOut(milisegundosFadeOut);
 
             }
+        }
+
+
+        private void sldDelayOffset_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if(sldDelayOffset.Value != 0)
+            {
+                delay.offsetMilisegundos = (int)sldDelayOffset.Value;
+            }
+        }
+
+        private void cbDelayActivo_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

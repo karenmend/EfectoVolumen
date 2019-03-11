@@ -21,6 +21,8 @@ namespace Reproductor
         private int cantidadMuestrasTranscurridas = 0;
         private int cantidadMuestrasBorradas = 0;
 
+        private bool activo;
+
         public WaveFormat WaveFormat
         {
             get
