@@ -12,7 +12,19 @@ namespace Reproductor
     {
         private ISampleProvider fuente;
         public int offsetMilisegundos { get; set; }
+        public int offsetMilisegundo;
 
+        public int OffsetMilisegundos{
+            get
+            {
+                return offsetMilisegundos;
+            }
+            set
+            {
+              
+            }
+        }
+       
         private List<float> bufferDelay = new List<float>();
         private int cantidadMuestrasOffset;
 
@@ -21,14 +33,13 @@ namespace Reproductor
         private int cantidadMuestrasTranscurridas = 0;
         private int cantidadMuestrasBorradas = 0;
 
-        private bool activo;
+        public bool activo = false;
 
         public WaveFormat WaveFormat
         {
             get
             {
                 return fuente.WaveFormat;
-
             }
         }
 
@@ -62,15 +73,17 @@ namespace Reproductor
                 cantidadMuestrasBorradas += diferencia;
             }
             //Aplicar el efecto
-            if(milisegundosTranscurridos > offsetMilisegundos)
+            if (activo)
             {
-                for(int i = 0; i<read; i++)
+                if (milisegundosTranscurridos > offsetMilisegundos)
                 {
-                    buffer[offset + i] += bufferDelay[cantidadMuestrasTranscurridas - cantidadMuestrasBorradas + i - cantidadMuestrasOffset];
+                    for (int i = 0; i < read; i++)
+                    {
+                        buffer[offset + i] += bufferDelay[cantidadMuestrasTranscurridas - cantidadMuestrasBorradas + i - cantidadMuestrasOffset];
+                    }
                 }
+
             }
-
-
 
             cantidadMuestrasTranscurridas += read;
             return read;

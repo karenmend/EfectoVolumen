@@ -26,7 +26,7 @@
         <TextBox x:Name="txtDuracionFadeOut" HorizontalAlignment="Left" Height="23" Margin="170,181,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnFadeOut" Content="Enviar" HorizontalAlignment="Left" Margin="314,177,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="btnFadeOut_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="32,210,0,0" TextWrapping="Wrap" Text="Delay:" VerticalAlignment="Top"/>
-        <CheckBox Click="cbDelayActivo_Click" x:Name="cbDelayActivo" Content="Activo" HorizontalAlignment="Left" Margin="32,232,0,0" VerticalAlignment="Top" Checked="cbDelayActivo_Checked"/>
+        <CheckBox Click="cbDelayActivo_Click" x:Name="cbDelayActivo" Content="Activo" HorizontalAlignment="Left" Margin="32,232,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="103,230,0,0" TextWrapping="Wrap" Text="Offset:" VerticalAlignment="Top"/>
         <Slider x:Name="sldDelayOffset" HorizontalAlignment="Left" Margin="103,250,0,0" VerticalAlignment="Top" Width="136" Maximum="3000" ValueChanged="sldDelayOffset_ValueChanged"/>
         <TextBlock x:Name="lblDelayOffset" HorizontalAlignment="Left" Margin="214,273,0,0" TextWrapping="Wrap" Text="0 ms" VerticalAlignment="Top"/>

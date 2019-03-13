@@ -37,7 +37,7 @@ namespace Reproductor
 
         bool dragging = false;
 
-        int milisegundosOffset = 0;
+       
 
         public MainWindow()
         {
@@ -115,6 +115,8 @@ namespace Reproductor
                 volume = new EfectoVolumen(fades);
 
                 volume.Volume = (float)sldVolumen.Value;
+
+                
 
                 output.Init(volume);
                 output.Play();
@@ -211,7 +213,11 @@ namespace Reproductor
 
         private void cbDelayActivo_Click(object sender, RoutedEventArgs e)
         {
-
+            if(delay != null)
+            {
+                delay.activo = (bool)cbDelayActivo.IsChecked;
+                delay.offsetMilisegundos = (int)sldDelayOffset.Value;
+            }
         }
     }
 }
